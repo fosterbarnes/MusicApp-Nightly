@@ -1,0 +1,109 @@
+# MusicApp - An Offline Music Player
+
+![MusicApp](https://i.imgur.com/H7qcVCc.png)
+
+MusicApp is in very early development. This repo mainly exists as an archive/backup of my daily progress. If you somehow stumble upon this repo, feel free to try it out but don't expect a complete app. Bugs are expected.
+
+I hate streaming services. I have tried SO many music player apps like Foobar2000, 
+Musicbee, AIMP, Clementine, Strawberry, etc. and just don't like them. No disrespect to the creators but they're just not for me. I tolerate iTunes, and while it is functional and has a UI that I find more functional than the alternatives, it's very out of date, sluggish overall and (for some reason????) makes my twitch stream lag when I play music with it lmao (I'm a twitch streamer). 
+
+To be honest, this app is made so I can use as my daily music player. HOWEVER, if you agree with one or more of the previous statements, this app may also be for you too lol. It's made for Windows with WPF in C#, for this reason, Linux/macOS versions are not currently planned. My main concern is efficiency for my personal daily driver OS (Windows 10) not cross compatibility. The thought of making such a detailed and clean UI in Rust (my cross compat. language of choice) gives me goosebumps and shivers, ergo: WPF in C#, using XAML for styling. 
+
+## Implemented Features
+
+- Working audio playback with various filetypes. Lossless support
+
+- Combined title/media control bar. Includes:
+  
+  - Reverse, play/pause and skip buttons.
+  
+  - Volume control slider
+  
+  - Currently playing track viewport with seek bar. Currently playing track section auto-centers and resizes based on window size
+  
+  - Minimize, maximize, and close buttons 
+
+- Ability to add a music library folder
+
+- Basic playlist menu
+
+- Basic recently played menu
+
+- Search bar
+
+## Planned Features
+
+###### General/Playback
+
+- Ability to actually save your music library LMAO. Right now you have to add a music folder on every run
+
+- Settings menu:
+  
+  - EQ
+  - Multiple audio backends
+  - Themes/colors
+  - Crossfading between songs
+  - Volume normalization
+  - Sample rate
+
+- Ability to edit metadata
+
+- Visualizer
+
+- Playlist import support
+
+- *POSSIBLE* iTunes library import support. I need to look into whether that's legal or not lmao
+
+- Audio file converting/compressing
+
+- Album art scraper
+
+- Optional metadata correction/cleanup
+
+- Robust queueing system/menu. I like to make "on the fly" playlists with my queues, so it must be as seamless and robust as possible
+
+- "Like" system and liked tracks menu
+
+###### Menu/UI
+
+- Separate artist, album, songs, recently added and genre menus/lists
+  
+  - Large thumbnails for album and recently added menus with a "dropdown" view when clicked
+  
+  - List view for songs and genre menus
+  
+  - Combined list/thumbnail view for artists menu. Artists will be displayed in a list, their albums will be sorted and shown with large thumbnails similar to the dropdown when clicked in album view
+
+###### Title Bar
+
+- Show the album of the currently playing track
+
+- Make the seek bar for the currently playing track actually work. Right now the user cannot interact with it whatsoever.
+
+- Allow the user to click the artist or album name from the currently playing song view. Clicking will open the respective item in the library
+
+- Move search to the title bar
+
+###### Integrations
+
+- Last.fm support
+
+- Possible media server integration (primarily emby/jellyfin because that's what I use)
+
+###### Backend/Boring Stuff
+
+- Automatic updates integrated with github releases
+
+- Installer
+
+- Option for portable version
+
+## Support
+
+If you have any issues, create an issue from the [Issues](https://github.com/fosterbarnes/rustitles/issues) tab and I will get back to you as quickly as possible.
+
+If you'd like to support me, follow me on twitch:
+https://www.twitch.tv/fosterbarnes
+
+or if you're feeling generous drop a donation:
+https://coff.ee/fosterbarnes

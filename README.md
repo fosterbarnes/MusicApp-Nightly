@@ -33,7 +33,7 @@ To be honest, this app is made so I can use as my daily music player. HOWEVER, i
 
 ## Planned Features
 
-###### General/Playback
+### General/Playback
 
 - Ability to actually save your music library LMAO. Right now you have to add a music folder on every run
 
@@ -64,7 +64,7 @@ To be honest, this app is made so I can use as my daily music player. HOWEVER, i
 
 - "Like" system and liked tracks menu
 
-###### Menu/UI
+### Menu/UI
 
 - Separate artist, album, songs, recently added and genre menus/lists
   
@@ -74,7 +74,7 @@ To be honest, this app is made so I can use as my daily music player. HOWEVER, i
   
   - Combined list/thumbnail view for artists menu. Artists will be displayed in a list, their albums will be sorted and shown with large thumbnails similar to the dropdown when clicked in album view
 
-###### Title Bar
+### Title Bar
 
 - Show the album of the currently playing track
 
@@ -84,13 +84,13 @@ To be honest, this app is made so I can use as my daily music player. HOWEVER, i
 
 - Move search to the title bar
 
-###### Integrations
+### Integrations
 
 - Last.fm support
 
 - Possible media server integration (primarily emby/jellyfin because that's what I use)
 
-###### Backend/Boring Stuff
+### Backend/Boring Stuff
 
 - Automatic updates integrated with github releases
 

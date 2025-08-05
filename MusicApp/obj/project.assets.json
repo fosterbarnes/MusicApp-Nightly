@@ -691,11 +691,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp Repo\\MusicApp\\MusicApp.csproj",
+      "projectUniqueName": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp-Nightly\\MusicApp\\MusicApp.csproj",
       "projectName": "MusicApp",
-      "projectPath": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp Repo\\MusicApp\\MusicApp.csproj",
+      "projectPath": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp-Nightly\\MusicApp\\MusicApp.csproj",
       "packagesPath": "C:\\Users\\Foster\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp Repo\\MusicApp\\obj\\",
+      "outputPath": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp-Nightly\\MusicApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

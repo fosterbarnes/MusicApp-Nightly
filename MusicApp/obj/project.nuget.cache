@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8orVvxSeFKE=",
+  "dgSpecHash": "XMRe5tjjpNE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp Repo\\MusicApp\\MusicApp.csproj",
+  "projectFilePath": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp-Nightly\\MusicApp\\MusicApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Foster\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
     "C:\\Users\\Foster\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",

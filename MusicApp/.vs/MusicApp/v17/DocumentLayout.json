@@ -1,0 +1,73 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp Repo\\MusicApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|c:\\users\\foster\\documents\\visual studio projects\\musicapp repo\\musicapp\\controls\\titlebarplayercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|solutionrelative:controls\\titlebarplayercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|c:\\users\\foster\\documents\\visual studio projects\\musicapp repo\\musicapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 341,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{25f7e850-ffa1-11d0-b63f-00a0c922e851}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp Repo\\MusicApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp Repo\\MusicApp\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-04T05:57:45.078Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TitleBarPlayerControl.xaml",
+              "DocumentMoniker": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp Repo\\MusicApp\\Controls\\TitleBarPlayerControl.xaml",
+              "RelativeDocumentMoniker": "Controls\\TitleBarPlayerControl.xaml",
+              "ToolTip": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp Repo\\MusicApp\\Controls\\TitleBarPlayerControl.xaml",
+              "RelativeToolTip": "Controls\\TitleBarPlayerControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-05T04:18:15.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 59,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

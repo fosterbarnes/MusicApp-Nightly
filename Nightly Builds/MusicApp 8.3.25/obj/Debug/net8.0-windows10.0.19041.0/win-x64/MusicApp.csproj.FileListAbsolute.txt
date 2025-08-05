@@ -1,0 +1,5 @@
+C:\Users\Foster\Documents\Visual Studio Projects\MusicApp\obj\Debug\net8.0-windows10.0.19041.0\win-x64\MusicApp.csproj.AssemblyReference.cache
+C:\Users\Foster\Documents\Visual Studio Projects\MusicApp\obj\Debug\net8.0-windows10.0.19041.0\win-x64\MainWindow.g.cs
+C:\Users\Foster\Documents\Visual Studio Projects\MusicApp\obj\Debug\net8.0-windows10.0.19041.0\win-x64\App.g.cs
+C:\Users\Foster\Documents\Visual Studio Projects\MusicApp\obj\Debug\net8.0-windows10.0.19041.0\win-x64\MusicApp_MarkupCompile.cache
+C:\Users\Foster\Documents\Visual Studio Projects\MusicApp\obj\Debug\net8.0-windows10.0.19041.0\win-x64\MusicApp_MarkupCompile.lref

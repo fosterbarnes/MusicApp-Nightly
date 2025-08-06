@@ -64,6 +64,10 @@ To be honest, this app is made so I can use as my daily music player. HOWEVER, i
 
 - "Like" system and liked tracks menu
 
+- Keyboard shortcuts for actions like "play/pause", "skip" "volume up/down" etc. These should work whether or not the app window is focused
+
+- Miniplayer window that can be open in addition to the main window, or as a replacement to the main window
+
 #### Menu/UI
 
 - Separate artist, album, songs, recently added and genre menus/lists

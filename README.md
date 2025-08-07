@@ -1,6 +1,6 @@
 # MusicApp - An Offline Music Player
 
-![MusicApp](https://i.imgur.com/H7qcVCc.png)
+![MusicApp](https://i.imgur.com/9dGNb9L.png)
 
 MusicApp is in very early development. This repo mainly exists as an archive/backup of my daily progress. If you somehow stumble upon this repo, feel free to try it out but don't expect a complete app. Bugs are expected.
 
@@ -12,6 +12,9 @@ To be honest, this app is made so I can use as my daily music player. HOWEVER, i
 ## Implemented Features
 
 * Working audio playback with various file types. Lossless support
+* Working music library settings that save when the app closes.
+* Ability to remove music library folders and clear settings.
+* Auto-rescan music library folders when the app launches.
 * Combined title/media control bar. Includes:
   * Reverse, play/pause and skip buttons.
   * Volume control slider
@@ -20,13 +23,11 @@ To be honest, this app is made so I can use as my daily music player. HOWEVER, i
 * Ability to add a music library folder
 * Basic playlist menu
 * Basic recently played menu
-* Search bar
 
 ## Planned Features
 
 #### General/Playback
 
-* Ability to actually save your music library LMAO. Right now you have to add a music folder on every run
 * Settings menu:
   * EQ
   * Multiple audio backends
@@ -45,6 +46,7 @@ To be honest, this app is made so I can use as my daily music player. HOWEVER, i
 * "Like" system and liked tracks menu
 * Keyboard shortcuts for actions like "play/pause", "skip" "volume up/down" etc. These should work whether or not the app window is focused
 * Mini-player window that can be open in addition to the main window, or as a replacement to the main window
+* Support for multiple libraries
 
 #### Menu/UI
 

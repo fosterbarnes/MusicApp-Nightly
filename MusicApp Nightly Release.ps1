@@ -48,6 +48,7 @@ Write-Host "Extracted version: $version" -ForegroundColor Green
 # Prompt for release notes
 Write-Host "`nEnter release notes (press Enter twice to finish, or just press Enter to use default notes):" -ForegroundColor Yellow
 Write-Host "You can paste multi-line formatted text. Press Enter twice when done." -ForegroundColor Cyan
+Write-Host "Note: Tab characters will be converted to spaces for proper formatting." -ForegroundColor Cyan
 
 $releaseNotesLines = @()
 $consecutiveEmptyLines = 0
@@ -64,6 +65,8 @@ while ($true) {
         # Add empty line to preserve formatting
         $releaseNotesLines += ""
     } else {
+        # Convert tab characters to spaces for proper formatting
+        $line = $line -replace "`t", "    "
         $releaseNotesLines += $line
         $consecutiveEmptyLines = 0
         $hasEnteredContent = $true

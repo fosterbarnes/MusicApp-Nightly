@@ -1,0 +1,271 @@
+﻿<Window x:Class="MusicApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:controls="clr-namespace:MusicApp.Controls"
+        xmlns:converters="clr-namespace:MusicApp.Converters"
+        mc:Ignorable="d"
+        Title="Music App" Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="#1E1E1E"
+        WindowStyle="None"
+        AllowsTransparency="False"
+        ResizeMode="CanResize"
+        MinWidth="820" MinHeight="500">
+
+        <!-- Remove white bar on top of window-->
+        <WindowChrome.WindowChrome>
+            <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
+        </WindowChrome.WindowChrome>
+
+    <!-- ===========================================
+         WINDOW RESOURCES
+         =========================================== -->
+    <Window.Resources>
+        <ResourceDictionary>
+            <!-- Material Design Theme and Custom Styles -->
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <!-- ===========================================
+         MAIN WINDOW LAYOUT
+         =========================================== -->
+    <Border BorderBrush="#404040" BorderThickness="1" Background="#1E1E1E">
+        <Grid Background="#1E1E1E">
+            <!-- Main Grid Definitions -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>  <!-- Title Bar Row -->
+                <RowDefinition Height="*"/>   <!-- Main Content Row -->
+            </Grid.RowDefinitions>
+
+            <!-- ===========================================
+                 TITLE BAR SECTION
+                 =========================================== -->
+            <controls:TitleBarPlayerControl x:Name="titleBarPlayer" Grid.Row="0"/>
+
+            <!-- ===========================================
+                 MAIN CONTENT AREA
+                 Contains: Sidebar Navigation + Content Views
+                 =========================================== -->
+            <Grid Grid.Row="1">
+                <!-- Main Content Grid Definitions -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>  <!-- Sidebar Width -->
+                    <ColumnDefinition Width="*"/>    <!-- Content Area (Expands) -->
+                </Grid.ColumnDefinitions>
+
+                <!-- ===========================================
+                     SIDEBAR NAVIGATION SECTION
+                     =========================================== -->
+                <Border Grid.Column="0" 
+                        Background="#2D2D2D" 
+                        BorderBrush="#404040" 
+                        BorderThickness="0,0,1,0">
+                    <StackPanel Margin="10">
+                        
+                        <!-- App Title -->
+                        <TextBlock Text="Music App" 
+                                   FontSize="20" 
+                                   FontWeight="Bold" 
+                                   Foreground="White" 
+                                   Margin="0,0,0,20"/>
+                        
+                        <!-- Navigation Buttons -->
+                        <Button x:Name="btnLibrary" 
+                                Style="{StaticResource SidebarNavigationButton}"
+                                Click="BtnLibrary_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Music" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                <TextBlock Text="Music Library" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        
+                        <Button x:Name="btnPlaylists" 
+                                Style="{StaticResource SidebarNavigationButton}"
+                                Click="BtnPlaylists_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="PlaylistMusic" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                <TextBlock Text="Playlists" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        
+                        <Button x:Name="btnRecentlyPlayed" 
+                                Style="{StaticResource SidebarNavigationButton}"
+                                Click="BtnRecentlyPlayed_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="History" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                <TextBlock Text="Recently Played" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        
+                        <!-- Separator -->
+                        <Separator Margin="0,20" Background="#404040"/>
+                        
+                        <!-- Action Buttons -->
+                        <Button x:Name="btnAddFolder" 
+                                Style="{StaticResource SidebarNavigationButton}"
+                                Click="BtnAddFolder_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="FolderPlus" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                <TextBlock Text="Add Music Folder" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        
+                        <Button x:Name="btnRescanLibrary" 
+                                Style="{StaticResource SidebarNavigationButton}"
+                                Click="BtnRescanLibrary_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Refresh" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                <TextBlock Text="Re-Scan Library" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        
+                        <Button x:Name="btnRemoveFolder" 
+                                Style="{StaticResource SidebarNavigationButton}"
+                                Click="BtnRemoveFolder_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="FolderRemove" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                <TextBlock Text="Remove Music Folder" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        
+                        <Button x:Name="btnClearSettings" 
+                                Style="{StaticResource SidebarNavigationButton}"
+                                Click="BtnClearSettings_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="DeleteSweep" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                <TextBlock Text="Clear Settings" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Border>
+
+                <!-- ===========================================
+                     MAIN CONTENT VIEWS SECTION
+                     =========================================== -->
+                <Grid Grid.Column="1" Background="#1E1E1E">
+                    <!-- Content Views Grid Definitions -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>  <!-- Header Row -->
+                        <RowDefinition Height="*"/>     <!-- Content Row (Expands) -->
+                    </Grid.RowDefinitions>
+
+                    <!-- ===========================================
+                         CONTENT HEADER SECTION
+                         =========================================== -->
+
+
+                    <!-- ===========================================
+                         CONTENT AREA SECTION
+                         =========================================== -->
+                    <Grid Grid.Row="1" x:Name="mainContent" Margin="0">
+                        
+                        <!-- ===========================================
+                             MUSIC LIBRARY VIEW
+                             =========================================== -->
+                        <Grid x:Name="libraryView" Visibility="Visible">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>     <!-- Music List (Expands) -->
+                            </Grid.RowDefinitions>
+
+                            <!-- Music List -->
+                            <ListView x:Name="lstMusic" 
+                                      Grid.Row="0" 
+                                      Background="Transparent" 
+                                      BorderThickness="0" 
+                                      Foreground="White"
+                                      SelectionChanged="LstMusic_SelectionChanged">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridView.ColumnHeaderContainerStyle>
+                                            <Style TargetType="GridViewColumnHeader" BasedOn="{StaticResource CompactGridViewHeaderStyle}"/>
+                                        </GridView.ColumnHeaderContainerStyle>
+                                        <GridViewColumn Header="Title" Width="300">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Title}" Margin="-9,0,0,0" VerticalAlignment="Center"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Artist" Width="200">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Artist}" Margin="-9,0,0,0" VerticalAlignment="Center"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Album" Width="200">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Album}" Margin="-9,0,0,0" VerticalAlignment="Center"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn Header="Time" Width="200">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Duration}" Margin="-9,0,0,0" VerticalAlignment="Center"/>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+
+                        <!-- ===========================================
+                             PLAYLISTS VIEW
+                             =========================================== -->
+                        <Grid x:Name="playlistsView" Visibility="Collapsed">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <StackPanel>
+                                    <TextBlock Text="Playlists" 
+                                               FontSize="20" 
+                                               FontWeight="Bold" 
+                                               Foreground="White" 
+                                               Margin="0,0,0,20"/>
+                                    
+                                    <Button Content="Create New Playlist" 
+                                            Style="{StaticResource MaterialDesignRaisedButton}"
+                                            HorizontalAlignment="Left" 
+                                            Margin="0,0,0,20"/>
+                                    
+                                    <ListView x:Name="lstPlaylists" 
+                                              Background="Transparent" 
+                                              Foreground="White"/>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Grid>
+
+                        <!-- ===========================================
+                             RECENTLY PLAYED VIEW
+                             =========================================== -->
+                        <Grid x:Name="recentlyPlayedView" Visibility="Collapsed">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <StackPanel>
+                                    <TextBlock Text="Recently Played" 
+                                               FontSize="20" 
+                                               FontWeight="Bold" 
+                                               Foreground="White" 
+                                               Margin="0,0,0,20"/>
+                                    
+                                    <ListView x:Name="lstRecentlyPlayed" 
+                                              Background="Transparent" 
+                                              Foreground="White"/>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

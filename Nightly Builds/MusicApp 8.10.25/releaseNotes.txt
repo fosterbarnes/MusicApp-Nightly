@@ -1,0 +1,6 @@
+8.10.25 Release Notes
+Fixes:
+- Properly scale seek bar based on window size
+- Clicking a position on the seek bar jumps to the selected time
+- Clicking and dragging on the seek bar allows the user to jump to a selected time
+- Show album info in the currently playing section of the title bar

@@ -18,7 +18,8 @@ To be honest, this app is made so I can use as my daily music player. HOWEVER, i
 * Combined title/media control bar. Includes:
   * Reverse, play/pause and skip buttons.
   * Volume control slider
-  * Currently playing track viewport with seek bar. Currently playing track section auto-centers and resizes based on window size
+  * Currently playing track viewport with working seek bar and song info. Clicking and dragging takes the user to the selected time.
+  * Currently playing track section auto-centers and resizes based on window size.
   * Minimize, maximize, and close buttons
 * Ability to add a music library folder
 * Basic playlist menu
@@ -47,6 +48,7 @@ To be honest, this app is made so I can use as my daily music player. HOWEVER, i
 * Keyboard shortcuts for actions like "play/pause", "skip" "volume up/down" etc. These should work whether or not the app window is focused
 * Mini-player window that can be open in addition to the main window, or as a replacement to the main window
 * Support for multiple libraries
+* Option to add "Add to MusicApp" to windows right-click context menu
 
 #### Menu/UI
 
@@ -57,8 +59,6 @@ To be honest, this app is made so I can use as my daily music player. HOWEVER, i
 
 #### Title Bar
 
-* Show the album of the currently playing track
-* Make the seek bar for the currently playing track actually work. Right now the user cannot interact with it whatsoever.
 * Allow the user to click the artist or album name from the currently playing song view. Clicking will open the respective item in the library
 * Move search to the title bar
 

@@ -1,0 +1,13 @@
+8.11.25 Release Notes
+Fixes:
+- Fix issue where clicking and dragging on the seek bar and holding a time would result in the song "skipping" forward beyond the selected time. The track is still being played in the background muted, so when the user held on a position, the song would start playing a few seconds past where the user wanted.
+- Current time on seek bar is smoothly updated when the window size changes. Previously it would "jump" to the current position a moment after the window size changed.
+- Adjusted spacing of the currently playing section and element within.
+
+Additions:
+- Added shuffle and repeat buttons. Repeat button has 2 different "on" states, repeat all and repeat one. 
+	- Shuffle button works with some errors
+	- Repeat button does not work. Button styling is defined but there is no repeat logic for playback
+	
+What's broken:
+- Playing a song after reaching the end of the queue with shuffle on results in a crash

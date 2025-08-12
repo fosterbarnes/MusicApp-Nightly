@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <DrawingGroup x:Key="RepeatOneIconGroup">
+        <DrawingGroup.ClipGeometry>
+            <RectangleGeometry Rect="0.0,0.0,24.0,24.0"/>
+        </DrawingGroup.ClipGeometry>
+        <GeometryDrawing Brush="White">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="M 6 5.75 L 10.25 10 H 7 V 16 H 13.5 L 15.5 18 H 7 A 2 2 0 0 1 5 16 V 10 H 1.75 L 6 5.75 M 18 18.25 L 13.75 14 H 17 V 8 H 10.5 L 8.5 6 H 17 A 2 2 0 0 1 19 8 V 14 H 22.25 L 18 18.25 Z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+        <GeometryDrawing Brush="White">
+            <GeometryDrawing.Geometry>
+                <PathGeometry Figures="m 22.3234 2.18696 v 6.67577 h -1.43443 v -5.05464 q -0.118397 0.104736 -0.282332 0.200364 q -0.15938 0.091075 -0.34153 0.168488 q -0.182149 0.07286 -0.377959 0.127504 q -0.195811 0.050091 -0.387067 0.07286 V 3.16601 Q 20.0602 3.00208 20.5566 2.74707 Q 21.0529 2.49206 21.4537 2.18696 Z" FillRule="Nonzero"/>
+            </GeometryDrawing.Geometry>
+        </GeometryDrawing>
+    </DrawingGroup>
+    <DrawingImage Drawing="{StaticResource RepeatOneIconGroup}" x:Key="RepeatOneIcon"/>
+</ResourceDictionary>

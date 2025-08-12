@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp-Nightly\\MusicApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|c:\\users\\foster\\documents\\visual studio projects\\musicapp-nightly\\musicapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|c:\\users\\foster\\documents\\visual studio projects\\musicapp-nightly\\musicapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|c:\\users\\foster\\documents\\visual studio projects\\musicapp-nightly\\musicapp\\controls\\titlebarplayercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|solutionrelative:controls\\titlebarplayercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|c:\\users\\foster\\documents\\visual studio projects\\musicapp-nightly\\musicapp\\controls\\titlebarplayercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|solutionrelative:controls\\titlebarplayercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|c:\\users\\foster\\documents\\visual studio projects\\musicapp-nightly\\musicapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|c:\\users\\foster\\documents\\visual studio projects\\musicapp-nightly\\musicapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D6BCE00D-B7A9-4702-8A20-E94FFBF57131}|MusicApp.csproj|c:\\users\\foster\\documents\\visual studio projects\\musicapp-nightly\\musicapp\\styles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 341,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,7 +46,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp-Nightly\\MusicApp\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -57,39 +57,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp-Nightly\\MusicApp\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp-Nightly\\MusicApp\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAN8BAAAAAAAAAAAxwO8BAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAC0FAAAAAAAAAAAcwO8BAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T07:10:59.565Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-07T07:10:59.565Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "TitleBarPlayerControl.xaml",
               "DocumentMoniker": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp-Nightly\\MusicApp\\Controls\\TitleBarPlayerControl.xaml",
               "RelativeDocumentMoniker": "Controls\\TitleBarPlayerControl.xaml",
               "ToolTip": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp-Nightly\\MusicApp\\Controls\\TitleBarPlayerControl.xaml",
               "RelativeToolTip": "Controls\\TitleBarPlayerControl.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-10T13:47:36.511Z"
+              "WhenOpened": "2025-08-10T13:47:36.511Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "TitleBarPlayerControl.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp-Nightly\\MusicApp\\Controls\\TitleBarPlayerControl.xaml.cs",
               "RelativeDocumentMoniker": "Controls\\TitleBarPlayerControl.xaml.cs",
               "ToolTip": "C:\\Users\\Foster\\Documents\\Visual Studio Projects\\MusicApp-Nightly\\MusicApp\\Controls\\TitleBarPlayerControl.xaml.cs",
               "RelativeToolTip": "Controls\\TitleBarPlayerControl.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHcDAAAAAAAAAAAowH4DAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T13:47:36.374Z"
+              "WhenOpened": "2025-08-10T13:47:36.374Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

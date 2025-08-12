@@ -1,6 +1,6 @@
 # MusicApp - An Offline Music Player
 
-![MusicApp](https://i.ibb.co/5XPrmDrg/beef137737cc.png)
+![MusicApp](https://i.ibb.co/WvW5HqPC/b0fac7461fbb.png)
 
 MusicApp is in very early development. This repo mainly exists as an archive/backup of my daily progress. If you somehow stumble upon this repo, feel free to try it out but don't expect a complete app. Bugs are expected.
 
@@ -24,6 +24,7 @@ To be honest, this app is made so I can use as my daily music player. HOWEVER, i
 * Ability to add a music library folder
 * Basic playlist menu
 * Basic recently played menu
+* Shuffle and repeat buttons
 
 ## Planned Features
 

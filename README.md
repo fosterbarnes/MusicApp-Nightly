@@ -1,6 +1,6 @@
 # MusicApp - An Offline Music Player
 
-![MusicApp](https://i.ibb.co/WvW5HqPC/b0fac7461fbb.png)
+![MusicApp](https://i.postimg.cc/VvCMjsY1/Music-App-Zj-RW49-ZWb7.png)
 
 MusicApp is in very early development. This repo mainly exists as an archive/backup of my daily progress. If you somehow stumble upon this repo, feel free to try it out but don't expect a complete app. Bugs are expected.
 

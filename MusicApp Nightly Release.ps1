@@ -4,8 +4,8 @@ $Host.UI.RawUI.WindowTitle = "MusicApp Nightly Release"
 # Find the newest build folder automatically
 $basePath = "C:\Users\Foster\Documents\Visual Studio Projects\MusicApp-Nightly\Nightly Builds"
 
-# Get all MusicApp folders and find the newest one based on version number
-$buildFolders = Get-ChildItem -Path $basePath -Directory | Where-Object { $_.Name -match "^MusicApp [0-9]+\.[0-9]+\.[0-9]+$" }
+# Get all version folders and find the newest one based on version number
+$buildFolders = Get-ChildItem -Path $basePath -Directory | Where-Object { $_.Name -match "^[0-9]+\.[0-9]+\.[0-9]+$" }
 
 if ($buildFolders.Count -eq 0) {
     Write-Host "Error: No build folders found in $basePath" -ForegroundColor Red
@@ -14,7 +14,7 @@ if ($buildFolders.Count -eq 0) {
 
 # Sort folders by version number (major.minor.patch)
 $newestFolder = $buildFolders | ForEach-Object {
-    $version = ($_.Name -split "MusicApp ")[-1]
+    $version = $_.Name
     $versionParts = $version -split "\."
     [PSCustomObject]@{
         Folder = $_
@@ -40,10 +40,7 @@ if ([string]::IsNullOrWhiteSpace($userInput)) {
 } elseif ($userInput -match "^[0-9]+\.[0-9]+\.[0-9]+$") {
     # User entered just version number (e.g., "8.6.25")
     $version = $userInput
-    $buildFolder = "$basePath\MusicApp $version"
-} elseif ($userInput -match "^MusicApp [0-9]+\.[0-9]+\.[0-9]+$") {
-    # User entered folder name (e.g., "MusicApp 8.6.25")
-    $buildFolder = "$basePath\$userInput"
+    $buildFolder = "$basePath\$version"
 } elseif (Test-Path $userInput) {
     # User entered a full path that exists
     $buildFolder = $userInput
@@ -61,16 +58,11 @@ if (-not (Test-Path $buildFolder)) {
 
 Write-Host "Using build folder: $buildFolder"
 
-# Extract version number from folder name (assuming it's always the last part like "MusicApp 8.4.25")
-$version = ($buildFolder -split "MusicApp ")[-1]
-if (-not $version) {
-    # If the split didn't work, try to extract version from the folder name
-    $folderName = Split-Path $buildFolder -Leaf
-    $version = ($folderName -split "MusicApp ")[-1]
-    if (-not $version) {
-        Write-Host "Error: Could not extract version number from folder name: $folderName" -ForegroundColor Red
-        exit 1
-    }
+# Extract version number from folder name (now just the folder name itself)
+$version = Split-Path $buildFolder -Leaf
+if (-not ($version -match "^[0-9]+\.[0-9]+\.[0-9]+$")) {
+    Write-Host "Error: Could not extract version number from folder name: $version" -ForegroundColor Red
+    exit 1
 }
 
 Write-Host "Extracted version: $version"

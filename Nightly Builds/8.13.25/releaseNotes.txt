@@ -1,0 +1,23 @@
+8.12.25 Release Notes
+Fixes:
+- Implemented a workaround to get the default animations for minimizing and restoring a window from a minimized state with the custom title bar. By default, no animation is shown with custom WPF title bars.
+	- Implemented the same workaround to get the window closing animation
+- Playing a song after reaching the end of the queue with shuffle on no longer results in a crash
+- Shuffle now works properly. Intended shuffle behaviour:
+	- When a song is selected in the library while shuffle is activated, a new randomized queue is created starting with the selected song, and contains the entire music library in a randomized order.
+	- When shuffle is activated while a song is already playing, the same behaviour above applies to this action
+	- When selecting a song in queue view while shuffle is activated, we just skip to this song in the randomized queue without resetting it or creating a new one
+
+Additions:
+- Animations for queue, shuffle and repeat buttons. Added a function for this animation so it can be re-used
+- Added queue button below "Music Library". This brings you to the "queue view"
+	- Queue view shows the current song queue (who could have guessed omg that's so surprising)
+	- The queue view dynamically updates as the queue progresses, works whether or not shuffle is activated
+- Added queue button to title bar. This is a placeholder and doesn't do anything yet. This will show the same list as the queue view, but in a narrower, smaller pop out window for easy access
+
+Code Changes/Refactoring:
+- Much more robust error handling for playback and related functions
+	
+What's broken:
+- Repeat button does nothing
+- Queue button in title bar does nothing

@@ -1,13 +1,43 @@
 $Host.UI.RawUI.WindowTitle = "MusicApp Nightly Release"
 . $PROFILE; Center-PSWindow
 
-# Prompt the user for the build folder
-$userInput = Read-Host "Enter build folder (ex: '8.6.25')"
-
-# Determine the full build folder path based on user input
+# Find the newest build folder automatically
 $basePath = "C:\Users\Foster\Documents\Visual Studio Projects\MusicApp-Nightly\Nightly Builds"
 
-if ($userInput -match "^[0-9]+\.[0-9]+\.[0-9]+$") {
+# Get all MusicApp folders and find the newest one based on version number
+$buildFolders = Get-ChildItem -Path $basePath -Directory | Where-Object { $_.Name -match "^MusicApp [0-9]+\.[0-9]+\.[0-9]+$" }
+
+if ($buildFolders.Count -eq 0) {
+    Write-Host "Error: No build folders found in $basePath" -ForegroundColor Red
+    exit 1
+}
+
+# Sort folders by version number (major.minor.patch)
+$newestFolder = $buildFolders | ForEach-Object {
+    $version = ($_.Name -split "MusicApp ")[-1]
+    $versionParts = $version -split "\."
+    [PSCustomObject]@{
+        Folder = $_
+        Version = $version
+        Major = [int]$versionParts[0]
+        Minor = [int]$versionParts[1]
+        Patch = [int]$versionParts[2]
+    }
+} | Sort-Object Major, Minor, Patch -Descending | Select-Object -First 1
+
+$newestFolderPath = $newestFolder.Folder.FullName
+$newestFolderName = $newestFolder.Folder.Name
+
+# Prompt the user for the build folder
+Write-Host "Newest build folder found: $newestFolderName"
+$userInput = Read-Host "Press enter to use newest build, or enter desired folder:"
+
+# Determine the full build folder path based on user input
+if ([string]::IsNullOrWhiteSpace($userInput)) {
+    # User pressed enter, use the newest folder
+    $buildFolder = $newestFolderPath
+    Write-Host "Using newest build folder: $newestFolderName"
+} elseif ($userInput -match "^[0-9]+\.[0-9]+\.[0-9]+$") {
     # User entered just version number (e.g., "8.6.25")
     $version = $userInput
     $buildFolder = "$basePath\MusicApp $version"
@@ -29,7 +59,7 @@ if (-not (Test-Path $buildFolder)) {
     exit 1
 }
 
-Write-Host "Using build folder: $buildFolder" -ForegroundColor Green
+Write-Host "Using build folder: $buildFolder"
 
 # Extract version number from folder name (assuming it's always the last part like "MusicApp 8.4.25")
 $version = ($buildFolder -split "MusicApp ")[-1]
@@ -43,43 +73,69 @@ if (-not $version) {
     }
 }
 
-Write-Host "Extracted version: $version" -ForegroundColor Green
+Write-Host "Extracted version: $version"
 
-# Prompt for release notes
-Write-Host "`nEnter release notes (press Enter twice to finish, or just press Enter to use default notes):" -ForegroundColor Yellow
-Write-Host "You can paste multi-line formatted text. Press Enter twice when done." -ForegroundColor Cyan
-Write-Host "Note: Tab characters will be converted to spaces for proper formatting." -ForegroundColor Cyan
+# Check for releaseNotes.txt file in the build folder
+$releaseNotesPath = "$buildFolder\releaseNotes.txt"
+$releaseNotes = $null
+$hasReleaseNotesFile = $false
 
-$releaseNotesLines = @()
-$consecutiveEmptyLines = 0
-$hasEnteredContent = $false
-
-while ($true) {
-    $line = Read-Host ">"
-    
-    if ($line -eq "") {
-        $consecutiveEmptyLines++
-        if ($consecutiveEmptyLines -ge 2) {
-            break
+if (Test-Path $releaseNotesPath) {
+    Write-Host "`nFound releaseNotes.txt file. Reading contents..." -ForegroundColor Green
+    try {
+        # Read the file content and preserve formatting
+        $releaseNotes = Get-Content -Path $releaseNotesPath -Raw -Encoding UTF8
+        if ($releaseNotes) {
+            # Convert tab characters to spaces for proper formatting (same as manual entry)
+            $releaseNotes = $releaseNotes -replace "`t", "    "
+            $hasReleaseNotesFile = $true
+            Write-Host "Successfully loaded release notes from file." -ForegroundColor Green
         }
-        # Add empty line to preserve formatting
-        $releaseNotesLines += ""
-    } else {
-        # Convert tab characters to spaces for proper formatting
-        $line = $line -replace "`t", "    "
-        $releaseNotesLines += $line
-        $consecutiveEmptyLines = 0
-        $hasEnteredContent = $true
+    } catch {
+        Write-Host "Warning: Could not read releaseNotes.txt file. Error: $($_.Exception.Message)" -ForegroundColor Yellow
+        $hasReleaseNotesFile = $false
     }
 }
 
-# If no custom release notes were entered, use the default
-if (-not $hasEnteredContent) {
-    $releaseNotes = "Nightly build release for version $version."
-    Write-Host "Using default release notes: $releaseNotes" -ForegroundColor Green
+# If no releaseNotes.txt file was found or couldn't be read, prompt user for release notes
+if (-not $hasReleaseNotesFile) {
+    Write-Host "`nEnter release notes (press Enter twice to finish, or just press Enter to use default notes):" -ForegroundColor Yellow
+    Write-Host "You can paste multi-line formatted text. Press Enter twice when done." -ForegroundColor Cyan
+    Write-Host "Note: Tab characters will be converted to spaces for proper formatting." -ForegroundColor Cyan
+
+    $releaseNotesLines = @()
+    $consecutiveEmptyLines = 0
+    $hasEnteredContent = $false
+
+    while ($true) {
+        $line = Read-Host ">"
+        
+        if ($line -eq "") {
+            $consecutiveEmptyLines++
+            if ($consecutiveEmptyLines -ge 2) {
+                break
+            }
+            # Add empty line to preserve formatting
+            $releaseNotesLines += ""
+        } else {
+            # Convert tab characters to spaces for proper formatting
+            $line = $line -replace "`t", "    "
+            $releaseNotesLines += $line
+            $consecutiveEmptyLines = 0
+            $hasEnteredContent = $true
+        }
+    }
+
+    # If no custom release notes were entered, use the default
+    if (-not $hasEnteredContent) {
+        $releaseNotes = "Nightly build release for version $version."
+        Write-Host "Using default release notes: $releaseNotes"
+    } else {
+        $releaseNotes = $releaseNotesLines -join "`n"
+        Write-Host "Using custom release notes (${releaseNotesLines.Count} lines)"
+    }
 } else {
-    $releaseNotes = $releaseNotesLines -join "`n"
-    Write-Host "Using custom release notes (${releaseNotesLines.Count} lines)" -ForegroundColor Green
+    Write-Host "Using release notes from file: releaseNotes.txt" -ForegroundColor Green
 }
 
 # Construct paths and release details

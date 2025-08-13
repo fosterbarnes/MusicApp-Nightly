@@ -9,7 +9,7 @@ Musicbee, AIMP, Clementine, Strawberry, etc. and just don't like them. No disres
 
 To be honest, this app is made so I can use as my daily music player. HOWEVER, if you agree with one or more of the previous statements, this app may also be for you too lol. It's made for Windows with WPF in C#, for this reason, Linux/macOS versions are not currently planned. My main concern is efficiency for my personal daily driver OS (Windows 10) not cross compatibility. The thought of making such a detailed and clean UI in Rust (my cross compat. language of choice) gives me goosebumps and shivers, ergo: WPF in C#, using XAML for styling.
 
-If you want to use it, download the latest [release.zip](github.com/fosterbarnes/MusicApp-Nightly/releases/latest), unzip, then run MusicApp.exe
+If you want to use it, download the latest [release.zip](https://github.com/fosterbarnes/MusicApp-Nightly/releases/latest), unzip, then run MusicApp.exe
 
 ## Implemented Features
 

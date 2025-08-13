@@ -1,0 +1,17 @@
+8.12.25 Release Notes
+Fixes:
+- Added gradient that to cover the text in the currently playing song section. This gradient starts transparent, then gradually becomed opaque, matching the background color. Previously, some artist, album or song sames would extend long enough to show below the shuffle and repeat buttons. This makes the text fade into the background before reaching the buttons.
+
+Additions:
+- App now has a pixel art style icon
+
+Code Changes/Refactoring:
+- Move all window management logic (minimize, maximize, restore, etc.) to WindowManager.cs
+- Rename "MusicTrack.cs" and class therein to "Song.cs"
+- Rename "Controls" folder to -> "TitleBarWithPlayerControls"
+	- Rename TitleBarPlayerControl to -> TitleBar and update all references to it
+- Create a "Models" folder
+	- Move "Song.cs" and "Playlist.cs" to this folder. I'll store future models in this folder as well
+	
+What's broken:
+- Playing a song after reaching the end of the queue with shuffle on results in a crash

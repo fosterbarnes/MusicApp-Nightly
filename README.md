@@ -61,7 +61,7 @@ If you want to use it, download the latest [release.zip](https://github.com/fost
   - List view for songs and genre menus
   - Combined list/thumbnail view for artists menu. Artists will be displayed in a list, their albums will be sorted and shown with large thumbnails similar to the dropdown when clicked in album view
 - Light and dark mode options. Default is dark mode
-- Multiple color themes (1st priority being lime green for my girlfriend), this will also change the icon
+- Multiple color themes (1st priority being mint green for my girlfriend), this will also change the icon
 
 #### Title Bar
 

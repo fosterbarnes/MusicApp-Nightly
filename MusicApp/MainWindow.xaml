@@ -9,17 +9,16 @@
         xmlns:converters="clr-namespace:MusicApp.Converters"
         mc:Ignorable="d"
         Title="Music App" Height="700" Width="1200"
-        WindowStartupLocation="CenterScreen"
         Background="#1E1E1E"
         WindowStyle="None"
         AllowsTransparency="False"
         ResizeMode="CanResize"
         MinWidth="820" MinHeight="500">
 
-        <!-- Remove white bar on top of window-->
-        <WindowChrome.WindowChrome>
-            <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
-        </WindowChrome.WindowChrome>
+    <!-- Remove white bar on top of window-->
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
 
     <!-- ===========================================
          WINDOW RESOURCES
@@ -42,8 +41,12 @@
         <Grid Background="#1E1E1E">
             <!-- Main Grid Definitions -->
             <Grid.RowDefinitions>
-                <RowDefinition Height="85"/>  <!-- Title Bar Row -->
-                <RowDefinition Height="*"/>   <!-- Main Content Row -->
+                <RowDefinition Height="85"/>
+                <!-- Title Bar Row -->
+                <RowDefinition Height="*"/>
+                <!-- Main Content Row -->
+                <RowDefinition Height="Auto"/>
+                <!-- Status Bar Row -->
             </Grid.RowDefinitions>
 
             <!-- ===========================================
@@ -58,8 +61,10 @@
             <Grid Grid.Row="1">
                 <!-- Main Content Grid Definitions -->
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250"/>  <!-- Sidebar Width -->
-                    <ColumnDefinition Width="*"/>    <!-- Content Area (Expands) -->
+                    <ColumnDefinition Width="250"/>
+                    <!-- Sidebar Width -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Content Area (Expands) -->
                 </Grid.ColumnDefinitions>
 
                 <!-- ===========================================
@@ -70,14 +75,14 @@
                         BorderBrush="#404040" 
                         BorderThickness="0,0,1,0">
                     <StackPanel Margin="10">
-                        
+
                         <!-- App Title -->
                         <TextBlock Text="Music App" 
                                    FontSize="20" 
                                    FontWeight="Bold" 
                                    Foreground="White" 
                                    Margin="0,0,0,20"/>
-                        
+
                         <!-- Navigation Buttons -->
                         <Button x:Name="btnLibrary" 
                                 Style="{StaticResource SidebarNavigationButton}"
@@ -87,7 +92,7 @@
                                 <TextBlock Text="Music Library" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button>
-                        
+
                         <Button x:Name="btnQueue" 
                                 Style="{StaticResource SidebarNavigationButton}"
                                 Click="BtnQueue_Click">
@@ -96,7 +101,7 @@
                                 <TextBlock Text="Queue" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button>
-                        
+
                         <Button x:Name="btnPlaylists" 
                                 Style="{StaticResource SidebarNavigationButton}"
                                 Click="BtnPlaylists_Click">
@@ -105,7 +110,7 @@
                                 <TextBlock Text="Playlists" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button>
-                        
+
                         <Button x:Name="btnRecentlyPlayed" 
                                 Style="{StaticResource SidebarNavigationButton}"
                                 Click="BtnRecentlyPlayed_Click">
@@ -114,10 +119,10 @@
                                 <TextBlock Text="Recently Played" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button>
-                        
+
                         <!-- Separator -->
                         <Separator Margin="0,20" Background="#404040"/>
-                        
+
                         <!-- Action Buttons -->
                         <Button x:Name="btnAddFolder" 
                                 Style="{StaticResource SidebarNavigationButton}"
@@ -127,7 +132,7 @@
                                 <TextBlock Text="Add Music Folder" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button>
-                        
+
                         <Button x:Name="btnRescanLibrary" 
                                 Style="{StaticResource SidebarNavigationButton}"
                                 Click="BtnRescanLibrary_Click">
@@ -136,7 +141,7 @@
                                 <TextBlock Text="Re-Scan Library" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button>
-                        
+
                         <Button x:Name="btnRemoveFolder" 
                                 Style="{StaticResource SidebarNavigationButton}"
                                 Click="BtnRemoveFolder_Click">
@@ -145,7 +150,7 @@
                                 <TextBlock Text="Remove Music Folder" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button>
-                        
+
                         <Button x:Name="btnClearSettings" 
                                 Style="{StaticResource SidebarNavigationButton}"
                                 Click="BtnClearSettings_Click">
@@ -163,8 +168,10 @@
                 <Grid Grid.Column="1" Background="#1E1E1E">
                     <!-- Content Views Grid Definitions -->
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>  <!-- Header Row -->
-                        <RowDefinition Height="*"/>     <!-- Content Row (Expands) -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- Header Row -->
+                        <RowDefinition Height="*"/>
+                        <!-- Content Row (Expands) -->
                     </Grid.RowDefinitions>
 
                     <!-- ===========================================
@@ -176,13 +183,14 @@
                          CONTENT AREA SECTION
                          =========================================== -->
                     <Grid Grid.Row="1" x:Name="mainContent" Margin="0">
-                        
+
                         <!-- ===========================================
                              MUSIC LIBRARY VIEW
                              =========================================== -->
                         <Grid x:Name="libraryView" Visibility="Visible">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>     <!-- Music List (Expands) -->
+                                <RowDefinition Height="*"/>
+                                <!-- Music List (Expands) -->
                             </Grid.RowDefinitions>
 
                             <!-- Music List -->
@@ -235,7 +243,8 @@
                              =========================================== -->
                         <Grid x:Name="queueView" Visibility="Collapsed">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>     <!-- Queue List (Expands) -->
+                                <RowDefinition Height="*"/>
+                                <!-- Queue List (Expands) -->
                             </Grid.RowDefinitions>
 
                             <!-- Queue List -->
@@ -294,12 +303,12 @@
                                                FontWeight="Bold" 
                                                Foreground="White" 
                                                Margin="0,0,0,20"/>
-                                    
+
                                     <Button Content="Create New Playlist" 
                                             Style="{StaticResource MaterialDesignRaisedButton}"
                                             HorizontalAlignment="Left" 
                                             Margin="0,0,0,20"/>
-                                    
+
                                     <ListView x:Name="lstPlaylists" 
                                               Background="Transparent" 
                                               Foreground="White"/>
@@ -318,7 +327,7 @@
                                                FontWeight="Bold" 
                                                Foreground="White" 
                                                Margin="0,0,0,20"/>
-                                    
+
                                     <ListView x:Name="lstRecentlyPlayed" 
                                               Background="Transparent" 
                                               Foreground="White"/>
@@ -328,6 +337,41 @@
                     </Grid>
                 </Grid>
             </Grid>
+
+            <!-- ===========================================
+                 STATUS BAR SECTION
+                 =========================================== -->
+            <Border Grid.Row="2" 
+                    Background="#2D2D2D" 
+                    BorderBrush="#404040" 
+                    BorderThickness="0,1,0,0"
+                    Height="20"
+                    VerticalAlignment="Bottom">
+                <Grid>
+                    <!-- Progress Bar Background (integrated) -->
+                    <Border x:Name="progressBarBackground"
+                            Background="#2D2D2D"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"/>
+
+                    <!-- Progress Bar Fill -->
+                    <Border x:Name="progressBarFill"
+                            Background="#705399"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Stretch"
+                            Width="0"
+                            Opacity="0.3"/>
+
+                    <!-- Status Text (on top of progress bar) -->
+                    <TextBlock x:Name="statusBarText" 
+                               Text="0 songs, 0 albums, 0.0 days, 0.00 GB" 
+                               Foreground="White" 
+                               FontSize="12"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Panel.ZIndex="1"/>
+                </Grid>
+            </Border>
         </Grid>
     </Border>
 </Window>

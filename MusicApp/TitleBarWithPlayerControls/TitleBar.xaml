@@ -10,12 +10,12 @@
              Height="85" 
              Background="#1E1E1E"
              MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
-    
+
     <UserControl.Resources>
         <ResourceDictionary>
             <!-- Converters -->
             <converters:SliderValueToWidthMultiConverter x:Key="SliderValueToWidthMultiConverter"/>
-            
+
             <!-- Custom Button Style for Media Controls -->
             <Style x:Key="CustomMediaButton" TargetType="Button">
                 <Setter Property="Background" Value="Transparent"/>
@@ -84,7 +84,7 @@
                             <Grid>
                                 <!-- Background Track -->
                                 <Border Height="4" Background="#404040" VerticalAlignment="Center" CornerRadius="2"/>
-                                
+
                                 <!-- Filled Portion -->
                                 <Border Height="4" Background="#705399" VerticalAlignment="Center" CornerRadius="2" 
                                         HorizontalAlignment="Left">
@@ -96,7 +96,7 @@
                                         </MultiBinding>
                                     </Border.Width>
                                 </Border>
-                                
+
                                 <!-- Slider Track for Interaction -->
                                 <Track x:Name="PART_Track">
                                     <Track.DecreaseRepeatButton>
@@ -157,7 +157,7 @@
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
-    
+
     <!-- ===========================================
          TITLE BAR SECTION
          Contains: Playback Controls, Volume Controls, Song Info, Window Controls
@@ -167,10 +167,14 @@
         <Grid>
             <!-- Title Bar Grid Definitions -->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>  <!-- Playback Controls -->
-                <ColumnDefinition Width="Auto"/>  <!-- Volume Controls -->
-                <ColumnDefinition Width="*"/>     <!-- Spacer -->
-                <ColumnDefinition Width="Auto"/>  <!-- Window Controls -->
+                <ColumnDefinition Width="Auto"/>
+                <!-- Playback Controls -->
+                <ColumnDefinition Width="Auto"/>
+                <!-- Volume Controls -->
+                <ColumnDefinition Width="*"/>
+                <!-- Spacer / Search Bar (fills unused space) -->
+                <ColumnDefinition Width="Auto"/>
+                <!-- Window Controls -->
             </Grid.ColumnDefinitions>
 
             <!-- ===========================================
@@ -180,7 +184,7 @@
                         Orientation="Horizontal" 
                         VerticalAlignment="Center" 
                         Margin="20,15,0,10">
-                
+
                 <!-- Previous Track Button -->
                 <Button x:Name="btnPrevious" 
                         Style="{StaticResource CustomMediaButton}" 
@@ -189,7 +193,7 @@
                         Click="BtnPrevious_Click">
                     <materialDesign:PackIcon Kind="SkipPrevious" Width="24" Height="24"/>
                 </Button>
-                
+
                 <!-- Play/Pause Button -->
                 <Button x:Name="btnPlayPause" 
                         Style="{StaticResource CustomMediaButton}" 
@@ -198,7 +202,7 @@
                         Click="BtnPlayPause_Click">
                     <materialDesign:PackIcon x:Name="iconPlayPause" Kind="Play" Width="24" Height="24"/>
                 </Button>
-                
+
                 <!-- Next Track Button -->
                 <Button x:Name="btnNext" 
                         Style="{StaticResource CustomMediaButton}" 
@@ -216,7 +220,7 @@
                         Orientation="Horizontal" 
                         VerticalAlignment="Center" 
                         Margin="30,15,0,10">
-                
+
                 <!-- Volume Slider -->
                 <Slider x:Name="sliderVolume" 
                         Width="100" 
@@ -228,7 +232,7 @@
                         Style="{StaticResource CustomVolumeSlider}"
                         Foreground="#705399" 
                         Background="Transparent"/>
-                
+
                 <!-- Volume Icon Button -->
                 <Border Background="Transparent" 
                         Padding="8" 
@@ -245,22 +249,23 @@
             <StackPanel Grid.Column="3" 
                         Orientation="Horizontal" 
                         HorizontalAlignment="Right" 
-                        VerticalAlignment="Top">
-                
+                        VerticalAlignment="Top"
+                        Panel.ZIndex="10">
+
                 <!-- Minimize Button -->
                 <Button x:Name="btnMinimize" 
                         Style="{StaticResource WindowControlButton}"
                         Click="BtnMinimize_Click">
                     <materialDesign:PackIcon Kind="WindowMinimize" Width="16" Height="16"/>
                 </Button>
-                
+
                 <!-- Maximize/Restore Button -->
                 <Button x:Name="btnMaximize" 
                         Style="{StaticResource WindowControlButton}"
                         Click="BtnMaximize_Click">
                     <materialDesign:PackIcon x:Name="iconMaximize" Kind="WindowMaximize" Width="16" Height="16"/>
                 </Button>
-                
+
                 <!-- Close Button -->
                 <Button x:Name="btnClose" 
                         Style="{StaticResource CloseButtonStyle}"
@@ -283,10 +288,12 @@
                     Panel.ZIndex="1">
                 <Grid VerticalAlignment="Center">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>  <!-- Album Art -->
-                        <ColumnDefinition Width="*"/>     <!-- Song Info (fills available space) -->
+                        <ColumnDefinition Width="Auto"/>
+                        <!-- Album Art -->
+                        <ColumnDefinition Width="*"/>
+                        <!-- Song Info (fills available space) -->
                     </Grid.ColumnDefinitions>
-                    
+
                     <!-- Album Art Container -->
                     <Border Grid.Column="0"
                             Width="50" 
@@ -300,7 +307,7 @@
                         </Border.Clip>
                         <Image x:Name="imgAlbumArt" Stretch="UniformToFill"/>
                     </Border>
-                    
+
                     <!-- Song Information -->
                     <Grid Grid.Column="1" VerticalAlignment="Center">
                         <!-- Song Title and Artist -->
@@ -328,7 +335,7 @@
                             </StackPanel>
                         </StackPanel>
                     </Grid>
-                    
+
                     <!-- Gradient Mask to prevent text from extending under shuffle/repeat buttons -->
                     <Rectangle x:Name="textGradientMask"
                               Grid.Column="1"
@@ -340,14 +347,18 @@
                               Panel.ZIndex="0">
                         <Rectangle.Fill>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                <GradientStop Color="#000A0A0A" Offset="0.0"/>    <!-- Transparent starts here -->
-                                <GradientStop Color="#000A0A0A" Offset="0.48"/>    <!-- Still transparent -->
-                                <GradientStop Color="#FF0A0A0A" Offset="0.68"/>   <!-- Starts becoming opaque immediately -->
-                                <GradientStop Color="#FF0A0A0A" Offset="0.9"/>    <!-- Fully opaque -->
+                                <GradientStop Color="#000A0A0A" Offset="0.0"/>
+                                <!-- Transparent starts here -->
+                                <GradientStop Color="#000A0A0A" Offset="0.48"/>
+                                <!-- Still transparent -->
+                                <GradientStop Color="#FF0A0A0A" Offset="0.68"/>
+                                <!-- Starts becoming opaque immediately -->
+                                <GradientStop Color="#FF0A0A0A" Offset="0.9"/>
+                                <!-- Fully opaque -->
                             </LinearGradientBrush>
                         </Rectangle.Fill>
                     </Rectangle>
-                    
+
                     <!-- Small solid rectangle to cover the 1-pixel gap -->
                     <Rectangle x:Name="gapCoverRectangle"
                               Grid.Column="1"
@@ -358,7 +369,7 @@
                               Margin="0,0,-4,0"
                               Panel.ZIndex="0"
                               Fill="#0A0A0A"/>
-                    
+
                     <!-- Queue Button - Positioned outside and to the right of the currently playing section -->
                     <Border x:Name="btnQueue" 
                             Grid.Column="1"
@@ -385,15 +396,18 @@
                             </Image.Source>
                         </Image>
                     </Border>
-                    
+
                     <!-- Seek Bar - Now a direct child of the main Grid -->
                     <Grid Grid.Column="1" VerticalAlignment="Center" Margin="0,36,39,8">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>  <!-- Current Time -->
-                            <ColumnDefinition Width="*"/>     <!-- Progress Bar (fills available space) -->
-                            <ColumnDefinition Width="Auto"/>  <!-- Total Duration -->
+                            <ColumnDefinition Width="Auto"/>
+                            <!-- Current Time -->
+                            <ColumnDefinition Width="*"/>
+                            <!-- Progress Bar (fills available space) -->
+                            <ColumnDefinition Width="Auto"/>
+                            <!-- Total Duration -->
                         </Grid.ColumnDefinitions>
-                        
+
                         <!-- Current Time -->
                         <TextBlock x:Name="txtCurrentTime" 
                                    Grid.Column="0"
@@ -402,7 +416,7 @@
                                    FontSize="11" 
                                    VerticalAlignment="Center" 
                                    Margin="0,0,8,-7"/>
-                        
+
                         <!-- Progress Bar -->
                         <Border Grid.Column="1"
                                 Height="4" 
@@ -421,7 +435,7 @@
                                     HorizontalAlignment="Left" 
                                     Width="0"/>
                         </Border>
-                        
+
                         <!-- Extended Clickable Area (Invisible) -->
                         <Border Grid.Column="1"
                                 Height="20"
@@ -434,7 +448,7 @@
                                 MouseLeave="SeekBar_MouseLeave"
                                 Cursor="Hand"
                                 Panel.ZIndex="-1"/>
-                        
+
                         <!-- Total Duration -->
                         <TextBlock x:Name="txtTotalDuration" 
                                    Grid.Column="2"
@@ -444,7 +458,7 @@
                                    VerticalAlignment="Center" 
                                    Margin="8,0,0,-7"/>
                     </Grid>
-                    
+
                     <!-- Shuffle and Repeat Buttons -->
                     <StackPanel Grid.Column="1" 
                               Orientation="Vertical" 
@@ -467,7 +481,7 @@
                             <Border.RenderTransform>
                                 <ScaleTransform x:Name="btnShuffleTransform" ScaleX="1" ScaleY="1"/>
                             </Border.RenderTransform>
-                            
+
                             <Grid>
                                 <!-- Animated background fill -->
                                 <Rectangle x:Name="btnShuffleFill" 
@@ -478,11 +492,11 @@
                                           VerticalAlignment="Center"
                                           RadiusX="3"
                                           RadiusY="3"/>
-                                
+
                                 <materialDesign:PackIcon x:Name="iconShuffle" Kind="ShuffleVariant" Width="16" Height="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Grid>
                         </Border>
-                        
+
                         <!-- Repeat Button -->
                         <Border x:Name="btnRepeat" 
                                 Width="24" 
@@ -499,7 +513,7 @@
                             <Border.RenderTransform>
                                 <ScaleTransform x:Name="btnRepeatTransform" ScaleX="1" ScaleY="1"/>
                             </Border.RenderTransform>
-                            
+
                             <Grid>
                                 <!-- Animated background fill -->
                                 <Rectangle x:Name="btnRepeatFill" 
@@ -510,7 +524,7 @@
                                           VerticalAlignment="Center"
                                           RadiusX="3"
                                           RadiusY="3"/>
-                                
+
                                 <Image x:Name="iconRepeat" Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
                                     <Image.RenderTransform>
                                         <TranslateTransform x:Name="iconRepeatTransform" X="0" Y="0"/>
@@ -522,6 +536,70 @@
                 </Grid>
             </Border>
 
+            <!-- ===========================================
+                 SEARCH BAR SECTION (integrated resize like song info bar, offset to right)
+                 =========================================== -->
+            <Border Grid.ColumnSpan="4"
+                    Background="#2D2D2D"
+                    BorderBrush="#404040"
+                    BorderThickness="1"
+                    CornerRadius="4"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Margin="0,8,120,0"
+                    Padding="8,4"
+                    MinWidth="150"
+                    MaxWidth="300"
+                    Height="28"
+                    Panel.ZIndex="20">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Search Icon -->
+                    <materialDesign:PackIcon Grid.Column="0"
+                                           Kind="Magnify"
+                                           Width="16"
+                                           Height="16"
+                                           Foreground="#CCCCCC"
+                                           VerticalAlignment="Center"
+                                           Margin="0,0,6,0"/>
+
+                    <!-- Search Text Box -->
+                    <TextBox Grid.Column="1"
+                            x:Name="txtSearch"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Foreground="#CCCCCC"
+                            FontSize="12"
+                            VerticalContentAlignment="Center"
+                            Padding="0,0,0,0"
+                            VerticalAlignment="Center">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TextBox">
+                                            <Border Background="{TemplateBinding Background}"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="0">
+                                                <ScrollViewer x:Name="PART_ContentHost"
+                                                            Margin="{TemplateBinding Padding}"
+                                                            Focusable="false"
+                                                            HorizontalScrollBarVisibility="Hidden"
+                                                            VerticalScrollBarVisibility="Hidden"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </Grid>
+            </Border>
 
         </Grid>
     </Border>

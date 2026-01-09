@@ -76,6 +76,54 @@ namespace MusicApp
 
         #region Settings Management
 
+        public AppSettings LoadSettingsSync()
+        {
+            try
+            {
+                Console.WriteLine($"LoadSettingsSync - Settings file exists: {File.Exists(SettingsFilePath)}");
+                Console.WriteLine($"LoadSettingsSync - Settings file path: {SettingsFilePath}");
+                
+                if (File.Exists(SettingsFilePath))
+                {
+                    var json = File.ReadAllText(SettingsFilePath);
+                    Console.WriteLine($"LoadSettingsSync - JSON content: {json}");
+                    
+                    var options = new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    };
+                    var settings = JsonSerializer.Deserialize<AppSettings>(json, options);
+                    Console.WriteLine($"LoadSettingsSync - Deserialized settings is null: {settings == null}");
+                    
+                    // Ensure all properties are properly initialized
+                    if (settings != null)
+                    {
+                        Console.WriteLine($"LoadSettingsSync - Player is null: {settings.Player == null}");
+                        Console.WriteLine($"LoadSettingsSync - WindowState is null: {settings.WindowState == null}");
+                        
+                        settings.Player ??= new PlayerSettings();
+                        settings.WindowState ??= new WindowStateSettings();
+                        
+                        Console.WriteLine($"LoadSettingsSync - After null coalescing - Player.IsShuffleEnabled: {settings.Player.IsShuffleEnabled}");
+                        return settings;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading settings: {ex.Message}");
+                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+            }
+            
+            // Return new settings with proper initialization
+            Console.WriteLine("LoadSettingsSync - Returning new AppSettings with defaults");
+            return new AppSettings
+            {
+                Player = new PlayerSettings(),
+                WindowState = new WindowStateSettings()
+            };
+        }
+
         public async Task<AppSettings> LoadSettingsAsync()
         {
             try
@@ -98,8 +146,8 @@ namespace MusicApp
                     // Ensure all properties are properly initialized
                     if (settings != null)
                     {
-                        Console.WriteLine($"LoadSettingsAsync - Player is null: {settings.Player == null}");
-                        Console.WriteLine($"LoadSettingsAsync - WindowState is null: {settings.WindowState == null}");
+                        Console.WriteLine($"LoadSettingsSync - Player is null: {settings.Player == null}");
+                        Console.WriteLine($"LoadSettingsSync - WindowState is null: {settings.WindowState == null}");
                         
                         settings.Player ??= new PlayerSettings();
                         settings.WindowState ??= new WindowStateSettings();
